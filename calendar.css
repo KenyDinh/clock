@@ -1,6 +1,6 @@
 :root {
-    --clock-size_h: 90vh;
-    --clock-size_w: 90vw;
+    --clock-size_h: 90dvh;
+    --clock-size_w: 90dvw;
     --gap-size-0: 15px;
     --gap-size-1: 75px;
     --gap-size-2: 90px;
@@ -8,8 +8,8 @@
 body {
     background-image: url('background.jpg');
 	background-color: #1e1e1e;
-	width: 100vw;
-	height: 100vh;
+	width: 100dvw;
+	height: 100dvh;
 	overflow: hidden;
 }
 div#calendar {
@@ -17,6 +17,7 @@ div#calendar {
     margin: 0 auto;
     width: 100%;
     height: 100%;
+	overflow:hidden;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10+ and Edge */
     user-select: none; /* Standard syntax */
@@ -86,7 +87,7 @@ div#stem-plate {
     height: calc(var(--gap-size-1) * 2);
     z-index: 88;
 }
-@media screen and (max-width: 700px), screen and (max-height: 700px) {
+@media screen and (max-width: 750px), screen and (max-height: 750px) {
     div#bran-plate, div#stem-plate {
         display: none;
     }

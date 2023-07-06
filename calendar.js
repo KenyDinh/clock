@@ -73,14 +73,14 @@ $(function() {
         }
         let blob;
         if (typeof(Worker) !== "undefined") {
+            const str_worker = "let time_interval=null;(()=>{if(time_interval){clearInterval(time_interval);time_interval=undefined;}postMessage(1);time_interval=setInterval(()=>{postMessage(1);},1000);})()";
             try {
                 window.URL = window.URL || window.webkitURL;
-                const str_worker = "let time_interval=null;(()=>{if(time_interval){clearInterval(time_interval);time_interval=undefined;}postMessage(1);time_interval=setInterval(()=>{postMessage(1);},1000);})()";
                 blob = new Blob([str_worker], {type : 'application/javascript'});
             } catch (e) {
                 window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
                 blob = new BlobBuilder();
-                blob.append(response);
+                blob.append(str_worker);
                 blob = blob.getBlob();
             }
         }
